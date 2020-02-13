@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+</head>
+<body>
+  <div id="header">
+    <div class="header-item logo">
+        <i class="fas fa-cloud"></i>
+    </div>
+    <div class="header-item title">
+        Weather App
+    </div>
+  </div>
+    <div id="wrapper">
+      <div id="content">
+        <div id="card">
+          <div id="weather">
+              <h2 id="weather-title"></h2>
+              <img id="weather-img" class="temp-icon" src="" alt="icon">
+              <h2 id="weather-temp" class="temp"><b></b></h2>
+              <span id="weather-unit" class="unit"></span>
+              <h3 id="weather-desc" ></h3>
+          </div>
+          <div id="zip">
+              <form onsubmit="submitZipCode(event)">
+                  <h2>Enter Zip Code</h2>
+                  <input type="text" id="zip-code-input" placeholder="Zip Code">
+                  <input type="submit" value="Get Weather">
+              </form>
+          </div>
+          <div id="settings">
+            <h2>Settings</h2>
+            <label for="units">Units</label>
+              <select id="units" onchange="onSettingChanged()">
+                <option value="&#8490;">Kelvin</option>
+                <option selected value="&#8457;">Imperial</option>
+                <option value="&#8451;">Metric</option>
+            </select>
+            <label for="countries-data">Country</label>
+              <select id="countries-data" onchange="onSettingChanged()"></select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="footer">
+      <div class="footer-item copyright">
+        <i class="fas fa-copyright"></i>
+        <span>
+            2019 | Red River Technology
+        </span>
+      </div>
+</footer>
+
+<!-- JavaScript belongs after alls tags inside the body tag but before the closing tag -->
+<script src="./js/api.js"></script>
+<script src="./js/script.js"></script>
+</body>
+</html>
