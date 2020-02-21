@@ -4,6 +4,10 @@ async function submitZipCode(event) {
     event.preventDefault();
     // Get Elements
     const zip = document.getElementById("zip-code-input");
+    //Ask user for Zip code
+    if (zip.value == "") {
+        alert("Please enter zip code")
+    }else{
     const code = document.getElementById("countries-data").value;
     // Gather Data
     const coordinates = await getWeatherCoordByZip(zip.value, code);
@@ -16,13 +20,14 @@ async function submitZipCode(event) {
     zip.value = "";
     // Show Weather
     updateWeatherDisplay(data);
+    }
 }
 
 function onSettingChanged() {
     // Get Weather Element
     const weatherDisplay = document.getElementById("weather");
     // Hide Weather Display
-    weatherDisplay.style.display = "hidden";
+    weatherDisplay.style.display = "none";
 }
 
 /* - - - UI Manipulation - - - */
@@ -48,6 +53,8 @@ async function updateCountryList() {
         optionElement.appendChild(textNode);
         // Add Option to List
         list.appendChild(optionElement);
+        // Set United States as default country
+        list.selectedIndex = (country.code === "US") ? index : list.selectedIndex;
     });
 }
 
@@ -61,7 +68,7 @@ function updateWeatherDisplay(data) {
     const desc = document.getElementById("weather-desc");
     const unitSetting = document.getElementById("units");
     // Get Values from Data
-    const titleVal = data;
+    const titleVal = data.name;
     const icon = data.weather[0].icon;
     const tempVal = data.main.temp;
     const unitVal = unitSetting.value;

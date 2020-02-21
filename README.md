@@ -1,3 +1,4 @@
+
 # Debug Exercise
 
 Please Debug and fix the issues below. Also, note that there are no issues in api.js file; Do not modify.
